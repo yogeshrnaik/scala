@@ -25,16 +25,8 @@ case class Charge(cc: CreditCard, amount: Double) {
       throw new Exception("Can't combine charges to different cards")
 }
 
-class CreditCard
-
-case class Coffee (price: Int) {
+case class CreditCard(number: Long) {
 }
 
-class CafeMain {
-  def main(args: Array[String]) {
-    val cafe = new Cafe
-    val (coffee, charge) = cafe.buyCoffee(new CreditCard)
-    println(coffee.price)
-    println(charge.amount)
-  }
+case class Coffee (price: Int) {
 }
