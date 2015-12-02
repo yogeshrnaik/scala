@@ -1,5 +1,7 @@
-import fp.chapter2.singleton.MyModule
+import fp.chapter2.singleton.MyModule.abs
 
-println(MyModule.abs(-10))
+println(abs(-10))
 
-println(MyModule.abs(20))
+println(abs(30))
+
+println(abs(0))
