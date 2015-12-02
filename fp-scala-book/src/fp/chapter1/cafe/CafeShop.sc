@@ -1,4 +1,5 @@
-import fp.chapter1.{Charge, CreditCard, Cafe}
+import fp.chapter1.cafe.Cafe
+import fp.chapter1.cafe.{Charge, CreditCard}
 
 val cafe = new Cafe
 

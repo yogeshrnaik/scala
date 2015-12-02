@@ -1,4 +1,4 @@
-package fp.chapter1
+package fp.chapter1.cafe
 
 class Cafe {
   def buyCoffee(cc: CreditCard): (Coffee, Charge) = {
@@ -15,6 +15,7 @@ class Cafe {
   def coalesce(charges: List[Charge]): List[Charge] =
     charges.groupBy(_.cc).values.map(_.reduce(_ combine _)).toList
 }
+
 
 case class Charge(cc: CreditCard, amount: Double) {
   def combine(other: Charge): Charge =
