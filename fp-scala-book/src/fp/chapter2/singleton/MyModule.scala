@@ -1,6 +1,7 @@
 package fp.chapter2.singleton
 
 import scala.annotation.tailrec
+import fp.chapter2.factorial.Factorial._
 
 // A comment!
 /* Another comment */
@@ -14,13 +15,6 @@ object MyModule {
   }
 
   def abs(n: Int): Int = if (n < 0) -n else n
-
-  def factorial(n: Int): Int = {
-    @tailrec
-    def go(n: Int, acc: Int): Int = if (n <= 0) acc else go(n - 1, n * acc)
-
-    go(n, 1)
-  }
 
   def formatResult(name: String, n: Int, f: Int => Int) = {
     val msg = "The %s of %d is %d."
