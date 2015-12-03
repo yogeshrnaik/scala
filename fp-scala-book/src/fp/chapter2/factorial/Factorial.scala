@@ -9,15 +9,4 @@ object Factorial {
 
     go(n, 1)
   }
-
-  def fib(n: Int): Int = {
-
-    @tailrec
-    def nthFib(i: Int, n1: Int, n2: Int): Int = {
-      if (i == n) n1
-      else nthFib(i+1, n2, n1+n2)
-    }
-
-    nthFib(0, 0, 1)
-  }
 }
