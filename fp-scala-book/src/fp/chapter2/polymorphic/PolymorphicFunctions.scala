@@ -11,6 +11,10 @@ object PolymorphicFunctions {
     loop(0)
   }
 
+  /**
+   * EXERCISE 2.2
+   * Implement isSorted, which checks whether an Array[A] is sorted according to a given comparison function:.
+   */
   def isSorted[A](as: Array[A], ordered: (A, A) => Boolean): Boolean = {
 
     def sorted(index: Int): Boolean = {

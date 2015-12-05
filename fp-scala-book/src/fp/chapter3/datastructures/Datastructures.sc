@@ -15,6 +15,10 @@ println(product(List(1, 2)))
 println(product(List(2, 0, 10, 12)))
 println(product(List(10, 12)))
 /** **************************************************/
+/**
+ * EXERCISE 3.1
+ * What will be the result of the following match expression?
+ */
 val x = List(1, 2, 3, 4, 5) match {
   case Cons(x, Cons(2, Cons(4, _))) => x
   case Nil => 42
@@ -38,7 +42,34 @@ println(drop(List(1, 2, 3), -10))
 println(drop(List(1, 2, 3), 10))
 
 println(dropWithPatternMatch(List(38, 989, 10), 2))
-println(dropWhile(List(1, 2, 3, 10, 5, 6), (x: Int) => x < 5))
+println(dropWhile(List(1, 2, 3, 10, 5, 6))(x => x < 5))
+/** **************************************************/
+println(init(List(1,2)))
+println(init(List(1)))
+println(init(List(1,2,3,4)))
+/** **************************************************/
+println(initTailRecWithListReverse(List(1), List()))
+println(initTailRecWithListReverse(List(1,2), List()))
+println(initTailRecWithListReverse(List(1,2,3), List()))
+/** **************************************************/
+println(sumWithFoldRight(List(1,2,3,4,5)))
+println(productWithFoldRight(List(1,2,3)))
+/** **************************************************/
+/**
+ * EXERCISE 3.8
+ * See what happens when you pass Nil and Cons themselves to foldRight, like this:
+ * foldRight(List(1,2,3), Nil:List[Int])(Cons(_,_)).10 What do you think this
+ * says about the relationship between foldRight and the data constructors of List?
+ * ANSWER = Cons(1,Cons(2,Cons(3,Nil)))
+ */
+println(foldRight(List(1,2,3), Nil:List[Int])(Cons(_,_)))
+/** **************************************************/
+println(sumWithFoldLeft(List(1,2,3,4,5)))
+println(productWithFoldLeft(List(1,2,3,4,5)))
+println(lengthWithFoldLeft(List(1,2,3,4,5)))
+/** **************************************************/
+println(reverse(List(1,2,3)))
+println(reverse(List(1)))
+println(reverse(List()))
 /** **************************************************/
 
-println(innerAppend(List(1, 2, 3, 4), List(10, 11), List()))
