@@ -1,20 +1,22 @@
 import fp.chapter3.datastructures._
 import fp.chapter3.datastructures.List._
 
-/** **************************************************/
+println("**************************************************")
+println("******** Defining lists of various datatypes ********")
 val ex1: List[Double] = Nil
 val ex2: List[Int] = Cons(1, Nil)
 val ex3: List[String] = Cons("a", Cons("b", Nil))
-
 println(ex1)
 println(ex2)
 println(ex3)
-/** **************************************************/
+println("**************************************************")
+println("******** sum and product of lists ********")
 println(sum(List(1, 2)))
 println(product(List(1, 2)))
 println(product(List(2, 0, 10, 12)))
 println(product(List(10, 12)))
-/** **************************************************/
+println("**************************************************")
+println("******** EXERCISE 3.1 ********")
 /**
  * EXERCISE 3.1
  * What will be the result of the following match expression?
@@ -26,35 +28,37 @@ val x = List(1, 2, 3, 4, 5) match {
   case Cons(h, t) => h + sum(t)
   case _ => 101
 }
-/** **************************************************/
-// Tail
+println("**************************************************")
+println("************* Tail function on list *************")
 println(tail(List(1, 4, 6)))
 println(tail(List()))
-
-/** **************************************************/
-// set Head
+println("**************************************************")
+println("************* Set Head function on list *************")
 println(setHead(1, List(2, 8, 9)))
-//println(setHead(2, List()))
-/** **************************************************/
-// drop
+//println(setHead(2, List())) // java.lang.RuntimeException: setHead on empty list
+println("**************************************************")
+println("************* drop functions on list *************")
 println(drop(List(1, 2, 3), 2))
 println(drop(List(1, 2, 3), -10))
 println(drop(List(1, 2, 3), 10))
-
 println(dropWithPatternMatch(List(38, 989, 10), 2))
 println(dropWhile(List(1, 2, 3, 10, 5, 6))(x => x < 5))
-/** **************************************************/
-println(init(List(1,2)))
+println("**************************************************")
+println("************* init function on list *************")
+println(init(List(1, 2)))
 println(init(List(1)))
-println(init(List(1,2,3,4)))
-/** **************************************************/
+println(init(List(1, 2, 3, 4)))
+println("**************************************************")
+println("************* init tail recursive *************")
 println(initTailRecWithListReverse(List(1), List()))
-println(initTailRecWithListReverse(List(1,2), List()))
-println(initTailRecWithListReverse(List(1,2,3), List()))
-/** **************************************************/
-println(sumWithFoldRight(List(1,2,3,4,5)))
-println(productWithFoldRight(List(1,2,3)))
-/** **************************************************/
+println(initTailRecWithListReverse(List(1, 2), List()))
+println(initTailRecWithListReverse(List(1, 2, 3), List()))
+println("**************************************************")
+println("************* sum and product with Fold Right *************")
+println(sumWithFoldRight(List(1, 2, 3, 4, 5)))
+println(productWithFoldRight(List(1, 2, 3)))
+println("**************************************************")
+println("************* EXERCISE 3.8 *************")
 /**
  * EXERCISE 3.8
  * See what happens when you pass Nil and Cons themselves to foldRight, like this:
@@ -62,14 +66,50 @@ println(productWithFoldRight(List(1,2,3)))
  * says about the relationship between foldRight and the data constructors of List?
  * ANSWER = Cons(1,Cons(2,Cons(3,Nil)))
  */
-println(foldRight(List(1,2,3), Nil:List[Int])(Cons(_,_)))
-/** **************************************************/
-println(sumWithFoldLeft(List(1,2,3,4,5)))
-println(productWithFoldLeft(List(1,2,3,4,5)))
-println(lengthWithFoldLeft(List(1,2,3,4,5)))
-/** **************************************************/
-println(reverse(List(1,2,3)))
+println(foldRight(List(1, 2, 3), Nil: List[Int])(Cons(_, _)))
+println("**************************************************")
+println("************* sum and product with Fold Left *************")
+println(sumWithFoldLeft(List(1, 2, 3, 4, 5)))
+println(productWithFoldLeft(List(1, 2, 3, 4, 5)))
+println(lengthWithFoldLeft(List(1, 2, 3, 4, 5)))
+println("**************************************************")
+println("************* reverse a list *************")
+println(reverse(List(1, 2, 3)))
 println(reverse(List(1)))
 println(reverse(List()))
-/** **************************************************/
-
+println("**************************************************")
+println("************* append one list to another using fold right *************")
+println(appendWithFold(List(1, 2), List(2, 3)))
+println("**************************************************")
+println("************* concat lists of list into a single list *************")
+println(concat(List(List(1, 2), List(3, 4))))
+println("**************************************************")
+println("************* add one to each item in list *************")
+println(addOne(Nil))
+println(addOne(List(1)))
+println(addOne(List(1, 2, 3)))
+println("**************************************************")
+println("************* Double List to String List *************")
+println(doubleListToStringList(List(1.32, 93.3, 5.02)))
+println("**************************************************")
+println("************* Map *************")
+println(map(List(3, 2, 1))(a => a - 1))
+println(map(List(): List[Int])(a => a + 10))
+println("**************************************************")
+println("************* Filter *************")
+println(filter(List(1, 2, 3, 4, 5, 6, 7))(a => a % 2 == 0))
+println(filter(List(1, 2, 3, 4, 5, 6, 7))(a => a % 2 != 0))
+println("**************************************************")
+println("************* flatMap *************")
+println(flatMapWithFoldRight(List(1, 2, 3))(i => List(i, i)))
+println(flatMapWithConcat(List(1, 2, 3))(i => List(i, 0, i)))
+println("**************************************************")
+println("************* filter with flatMap *************")
+println(filterWithFlatMap(List(10, 11, 12, 3, 4))(a => a <= 10))
+println("**************************************************")
+println("************* addPairs *************")
+println(addPairs(List(1, 2, 3), List(9, 8, 7)))
+println("**************************************************")
+println("************* zipWith *************")
+println(zipWith(List(1, 2), List(-11.0, -12.0))((a, b) => a + b))
+println("**************************************************")
