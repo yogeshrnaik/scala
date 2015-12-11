@@ -1,4 +1,4 @@
-package fp.chapter3.datastructures
+package fp.chapter3.datastructures.list
 
 import scala.annotation.tailrec
 
@@ -192,11 +192,11 @@ object List {
    * which means it works even for large lists without overflowing the stack.
    */
   def foldLeftWithFoldRight[A, B](list: List[A], initial: B)(reducer: (B, A) => B): B = {
-    sys.error("to do")
+    sys.error("todo")
   }
 
   def foldRightWithFoldLeft[A, B](as: List[A], initial: B)(reducer: (A, B) => B): B = {
-    sys.error("to do")
+    sys.error("todo")
   }
 
   /**
@@ -374,11 +374,11 @@ object List {
    * scanLeft and scanRight - Like foldLeft and foldRight, but they return the List of partial results rather than just the final accumulated value
    */
   def scanLeft[A, B, C](list: List[A], initial: B)(f: (A, B) => C): List[C] = {
-    sys.error("to do")
+    sys.error("todo")
   }
 
   def scanRight[A, B, C](list: List[A], initial: B)(f: (B, A) => C): List[C] = {
-    sys.error("to do")
+    sys.error("todo")
   }
 
   /**
