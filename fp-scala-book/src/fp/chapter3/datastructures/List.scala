@@ -157,6 +157,7 @@ object List {
    * and then write another general list-recursion function, foldLeft, that is tail-recursive,
    * using the techniques we discussed in the previous chapter. Here is its signature
    */
+  @tailrec
   def foldLeft[A, B](list: List[A], initial: B)(reducer: (B, A) => B): B = {
     list match {
       case Nil => initial
@@ -320,33 +321,92 @@ object List {
    * Returns a list consisting of the first n elements of this
    */
   def take[A](list: List[A], n: Int): List[A] = {
-    sys.error("to do")
+    @tailrec
+    def innerTake(l: List[A], acc: List[A], i: Int): List[A] =
+      if (i == n) acc
+      else
+        l match {
+          case Nil => acc
+          case Cons(h, t) => innerTake(t, Cons(h, acc), i + 1)
+        }
+    if (n <= 0) Nil else reverse(innerTake(list, Nil, 0))
   }
 
   /**
    * Returns a list consisting of the longest valid prefix of this whose elements all pass the predicate f
    */
-  def takeWhile[A](list: List[A], f: A => Boolean): List[A] = {
-    sys.error("to do")
+  def takeWhile[A](list: List[A])(predicate: A => Boolean): List[A] = {
+    @tailrec
+    def innerTakeWhile(l: List[A], acc: List[A]): List[A] =
+      l match {
+        case Nil => acc
+        case Cons(h, t) if predicate(h) => innerTakeWhile(t, Cons(h, acc))
+        case Cons(h, t) => acc
+      }
+
+    reverse(innerTakeWhile(list, Nil))
   }
 
   /**
    * Returns true if and only if all elements of this pass the predicate f
    */
-  def forall[A](list: List[A], f: A => Boolean): Boolean = {
-    sys.error("to do")
+  @tailrec
+  def forall[A](list: List[A])(predicate: A => Boolean): Boolean = {
+    list match {
+      case Nil => false
+      case Cons(head, Nil) => predicate(head)
+      case Cons(head, tail) => if (!predicate(head)) false else forall(tail)(predicate)
+    }
   }
 
   /**
    * Returns true if any element of this passes the predicate f
    */
-  def exists[A](list: List[A], f: A => Boolean): Boolean = {
-    sys.error("to do")
+  def exists[A](list: List[A])(predicate: A => Boolean): Boolean = {
+    list match {
+      case Nil => false
+      case Cons(head, Nil) => predicate(head)
+      case Cons(head, tail) => if (predicate(head)) true else exists(tail)(predicate)
+    }
   }
 
   /**
    * scanLeft and scanRight - Like foldLeft and foldRight, but they return the List of partial results rather than just the final accumulated value
    */
+  def scanLeft[A, B, C](list: List[A], initial: B)(f: (A, B) => C): List[C] = {
+    sys.error("to do")
+  }
+
+  def scanRight[A, B, C](list: List[A], initial: B)(f: (B, A) => C): List[C] = {
+    sys.error("to do")
+  }
+
+  /**
+   * EXERCISE 3.24
+   * Hard: As an example, implement hasSubsequence for checking whether a List contains another List as a subsequence.
+   * For instance, List(1,2,3,4) would have List(1,2), List(2,3), and List(4) as subsequences, among others.
+   * You may have some difficulty finding a concise purely functional implementation that is also efficient.
+   * That's okay. Implement the function however comes most naturally.
+   * We'll return to this implementation in chapter 5 and hopefully improve on it.
+   * Note: Any two values x and y can be compared for equality in Scala using the expression x == y.
+   */
+  @tailrec
+  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = {
+    sup match {
+      case Nil => sub == Nil
+      case _ if startsWith(sup, sub) => true
+      case Cons(_, tail) => hasSubsequence(tail, sub)
+    }
+  }
+
+  @tailrec
+  def startsWith[A](list: List[A], prefix: List[A]): Boolean = {
+    (list, prefix) match {
+      case (_, Nil) => true
+      case (Cons(h1, t1), Cons(h2, t2)) if (h1 == h2) => startsWith(t1, t2)
+      case _ => false
+    }
+  }
 
   /**
    * The function apply in the object List is a variadic function, meaning it accepts zero
