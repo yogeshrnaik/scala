@@ -2,6 +2,8 @@ package fp.chapter5.stream
 
 import fp.chapter5.stream.Stream.{cons, empty}
 
+import scala.annotation.tailrec
+
 sealed trait Stream[+A] {
   def headOption: Option[A] = this match {
     case Empty => None
@@ -44,7 +46,8 @@ sealed trait Stream[+A] {
     }
   }
 
-  def drop(n: Int): Stream[A] = {
+  @tailrec
+  final def drop(n: Int): Stream[A] = {
     this match {
       case Cons(h, t) if n <= 0 => this
       case Cons(h, t) if n > 0 => t().drop(n - 1)
@@ -58,6 +61,13 @@ sealed trait Stream[+A] {
   def takeWhile(predicate: A => Boolean): Stream[A] = this match {
     case Cons(h, t) if predicate(h()) => cons(h(), t().takeWhile(predicate))
     case _ => Empty
+  }
+
+  @tailrec
+  final def exists(p: A => Boolean): Boolean = this match {
+    case Cons(h, t) if p(h()) => true
+    case Cons(h, t) => t().exists(p)
+    case _ => false
   }
 }
 

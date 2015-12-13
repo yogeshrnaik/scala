@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0eaf0ee-e0df-4e50-8cc5-8fb007f49873" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fp/chapter5/laziness/Laziness.sc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fp/chapter5/laziness/Laziness.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc" afterPath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala" afterPath="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala" />
     </list>
     <ignored path="fp-scala-book.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,21 +26,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Stream.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Stream.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
-              <folding />
+            <state vertical-scroll-proportion="0.449827">
+              <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+              <folding>
+                <element signature="e#28#74#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stream.sc" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Stream.sc" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5645757">
-              <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.6900369">
+              <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -120,8 +119,8 @@
         <option value="$PROJECT_DIR$/src/fp/chapter5/laziness/LazinessExamples.scala" />
         <option value="$PROJECT_DIR$/src/fp/chapter5/laziness/Laziness.scala" />
         <option value="$PROJECT_DIR$/src/fp/chapter5/laziness/Laziness.sc" />
-        <option value="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala" />
         <option value="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc" />
+        <option value="$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala" />
       </list>
     </option>
   </component>
@@ -650,7 +649,7 @@
       <workItem from="1449898837393" duration="7924000" />
       <workItem from="1449928182360" duration="9670000" />
       <workItem from="1449982002016" duration="12618000" />
-      <workItem from="1450010000745" duration="8192000" />
+      <workItem from="1450010000745" duration="9459000" />
     </task>
     <task id="LOCAL-00001" summary="workspace changes">
       <created>1449067721252</created>
@@ -698,11 +697,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106583000" />
+    <option name="totallyTimeSpent" value="107850000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1374" height="748" extended-state="1" />
-    <editor active="true" />
+    <frame x="-4" y="-4" width="1374" height="748" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1172,19 +1171,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala">
+    <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="25" selection-start-line="57" selection-start-column="25" selection-end-line="57" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.6900369">
+          <caret line="22" column="56" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.sc">
+    <entry file="file://$PROJECT_DIR$/src/fp/chapter5/stream/Stream.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5645757">
-          <caret line="18" column="57" selection-start-line="18" selection-start-column="57" selection-end-line="18" selection-end-column="57" />
-          <folding />
+        <state vertical-scroll-proportion="0.449827">
+          <caret line="65" column="10" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+          <folding>
+            <element signature="e#28#74#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
