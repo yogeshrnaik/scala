@@ -18,10 +18,11 @@ object Person {
     if (age < 0) Left("Age is out of range.")
     else Right(new Age(age))
 
-  def mkPerson(name: String, age: Int): Either[String, Person] =
-    mkName(name).map2(mkAge(age))(Person(_, _))
+  def mkPerson(name: String, age: Int): Either[List[String], Person] = {
+    val name1: Either[String, Name] = mkName(name)
+    val age1: Either[String, Age] = mkAge(age)
 
-  def main(args: Array[String]) {
-    mkPerson("Test", 1)
+    name1.combine(age1)(Person(_, _))
+//    name1.map2(age1)(Person(_, _))
   }
 }
