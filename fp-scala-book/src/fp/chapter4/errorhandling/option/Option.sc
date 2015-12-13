@@ -1,0 +1,30 @@
+import fp.chapter4.errorhandling._
+import fp.chapter4.errorhandling.option.Option._
+
+import fp.chapter3.datastructures.list._
+
+println("**************************************************")
+println("******** Some ********")
+val some10 = option.Some(10)
+println(some10.map(a => a + 20))
+println(some10.flatMap(a => option.Some(a + 2)))
+println(some10.filter(a => a > 100))
+println(some10.filter(a => a < 100))
+println("**************************************************")
+println(some10.get)
+println(some10.getOrElse(50))
+println(some10.orElse(option.Some(2)))
+println(option.Some(20).orElse(option.Some(2)))
+println("**************************************************")
+println("******** None ********")
+println(option.None.map((a: Int) => a + 20))
+println(option.None.flatMap((a: Double) => option.Some(a + 2)))
+println(option.None.filter((a: Int) => a > 100))
+println("**************************************************")
+println(option.None.getOrElse(20))
+println(option.None.orElse(option.Some(30)))
+println("**************************************************")
+val ints : List[Option[Int]] = List(Some(11), Some(12), Some(13))
+println(ints)
+println(sequence(ints))
+println("**************************************************")
