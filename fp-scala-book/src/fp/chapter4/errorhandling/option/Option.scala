@@ -122,6 +122,19 @@ object Option {
    * In fact, implement sequence in terms of traverse.
    */
   def traverse[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] = {
-    sys.error("todo")
+    a match {
+      case Nil => Some(Nil)
+      // case Cons(h, t) => map2(f(h), traverse(t)(f))((hh: B, tt: List[B]) => Cons(hh, tt))
+      case Cons(h, t) => map2(f(h), traverse(t)(f))(Cons(_, _)) // more concise
+    }
+  }
+
+  def traverseWithFoldRight[A, B](a: List[A])(f: A => Option[B]): Option[List[B]] = {
+    // foldRight(a, (Some(Nil)): Option[List[B]])((h: A, acc: Option[List[B]]) => map2(f(h), acc)((hh: B, tt: List[B]) => Cons(hh, tt)))
+    foldRight(a, Some(Nil): Option[List[B]])((h, acc) => map2(f(h), acc)(Cons(_, _))) // more concise
+  }
+
+  def sequenceWithTraverse[A](a: List[Option[A]]): Option[List[A]] = {
+    traverse(a)((aOption: Option[A]) => aOption)
   }
 }

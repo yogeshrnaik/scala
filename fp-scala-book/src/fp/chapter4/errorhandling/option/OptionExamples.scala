@@ -1,8 +1,9 @@
 package fp.chapter4.errorhandling.option
 
 import fp.chapter3.datastructures.list.List
+import fp.chapter4.errorhandling.option.Option._
 
-object OptionMain {
+object OptionExamples {
   def mean(xs: Seq[Double]): Option[Double] =
     if (xs.isEmpty) None
     else Some(xs.sum / xs.length)
@@ -28,5 +29,7 @@ object OptionMain {
 
     println(Option.sequence(List()))
     println(Option.sequence(List(None, Some(1))))
+
+    println(sequenceWithTraverse(List(Some(1), Some(2))))
   }
 }
