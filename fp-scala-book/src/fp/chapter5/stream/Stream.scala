@@ -1,5 +1,6 @@
 package fp.chapter5.stream
 
+import fp.chapter4.errorhandling.option.{None, Option, Some}
 import fp.chapter5.stream.Stream.{cons, empty}
 
 import scala.annotation.tailrec
@@ -131,6 +132,53 @@ sealed trait Stream[+A] {
 
   def find(p: A => Boolean): Option[A] =
     filter(p).headOption
+
+  /**
+   * EXERCISE 5.13
+   * Use unfold to implement map, take, takeWhile, zipWith (as in chapter 3), and zipAll.
+   * The zipAll function should continue the traversal as long as either stream has more elements.
+   * It uses Option to indicate whether each stream has been exhausted.
+   */
+  def mapWithUnfold[B](f: A => B): Stream[B] = {
+    Stream.unfold(this)(s => s match {
+      case Cons(h, t) => Some((f(h()), t()))
+      case _ => None
+    })
+  }
+
+  def takeWithUnfold(n: Int): Stream[A] = {
+    Stream.unfold((this, n))(pair => pair match {
+      case (Cons(h, t), 1) => Some(h(), (empty, 0))
+      case (Cons(h, t), n) if (n > 1) => Some(h(), (t(), n - 1))
+      case _ => None
+    })
+  }
+
+  def takeWhileWithUnfold(predicate: A => Boolean): Stream[A] = {
+    Stream.unfold(this) {
+      case Cons(h, t) if predicate(h()) => Some(h(), t())
+      case _ => None
+    }
+  }
+
+  def zipWith[B, C](s2: Stream[B])(f: (A, B) => C): Stream[C] = {
+    Stream.unfold((this, s2))(pair => pair match {
+      case (Cons(h1, t1), Cons(h2, t2)) => Some((f(h1(), h2()), (t1(), t2())))
+      case _ => None
+    })
+  }
+
+  // TODO: try to understand how this works
+  def zipAll[B](s2: Stream[B]): Stream[(Option[A], Option[B])] = zipWithAll(s2)((_, _))
+
+  // TODO: what is the meaning of -> in below function?
+  def zipWithAll[B, C](s2: Stream[B])(f: (Option[A], Option[B]) => C): Stream[C] =
+    Stream.unfold((this, s2)) {
+      case (Empty, Empty) => None
+      case (Cons(h, t), Empty) => Some(f(Some(h()), None) ->(t(), empty[B]))
+      case (Empty, Cons(h, t)) => Some(f(None, Some(h())) -> (empty[A] -> t()))
+      case (Cons(h1, t1), Cons(h2, t2)) => Some(f(Some(h1()), Some(h2())) -> (t1() -> t2()))
+    }
 }
 
 case object Empty extends Stream[Nothing]
