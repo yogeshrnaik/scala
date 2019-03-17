@@ -13,13 +13,13 @@ class BankingAppSpec extends FlatSpec with Matchers {
     assert(acct.getTransactions().isEmpty() == true)
   }
 
-  "A new BankAccount with opening balance > 0" should "have latest transaction as a Credit transaction equal to opening balance" in {
-    val acct = new BankAccount("Tom", 10)
-    acct.getBalance() should be (10)
-    assert(acct.contains(Credit("Opening balance", 10, 10)) == true)
+  "A new BankAccount with opening balance > 0" should "have latest transaction as a Credit = opening balance" in {
+    val acct = new BankAccount("Tom", 100)
+    acct.getBalance() should be (100)
+    assert(acct.getLatestTransaction() == Credit("Opening balance", 100, 100))
   }
 
-  "A deposit operation" should "add a Credit transaction equal to deposited amount" in {
+  "A deposit operation" should "have latest transaction as a Credit = deposited amount" in {
     val acct = new BankAccount("Tom", 10)
     acct.deposit(40)
 
@@ -27,13 +27,11 @@ class BankingAppSpec extends FlatSpec with Matchers {
     assert(acct.getLatestTransaction() == Credit("Deposited", 40, 50))
   }
 
-  "A withdraw operation" should "have latest transaction as a Debit transaction equal to withdrawn amount" in {
+  "A withdraw operation" should "have latest transaction as a Debit = withdrawn amount" in {
     val acct = new BankAccount("Tom", 100)
     acct.withdraw(20)
 
     acct.getBalance() should be (80)
     assert(acct.getLatestTransaction() == Debit("Withdrawn", 20, 80))
   }
-
-
 }
