@@ -34,4 +34,11 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.getBalance() should be (80)
     assert(acct.getLatestTransaction() == Debit("Withdrawn", 20, 80))
   }
+
+  "A new BankAccount" should "not be created with negative opening balance" in {
+    val ex = intercept[IllegalArgumentException] {
+      new BankAccount("Tom", -10)
+    }
+    ex.getMessage should equal ( "requirement failed: Balance must be greater than or equal to zero")
+  }
 }

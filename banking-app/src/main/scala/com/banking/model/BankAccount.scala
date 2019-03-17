@@ -26,10 +26,9 @@ class BankAccount(val accountHolder: String, private var balance: Double) {
     this
   }
 
-  def contains(tran: Transaction): Boolean = transactions.contains(tran)
+  def contains(trans: Transaction): Boolean = synchronized { transactions.contains(trans) }
 
-
-  def getLatestTransaction(): Transaction = transactions.getLatestTransaction()
+  def getLatestTransaction(): Transaction = synchronized { transactions.getLatestTransaction() }
 
   override def toString: String = {
     val PADDING  = 20
