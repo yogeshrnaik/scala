@@ -1,35 +1,44 @@
 package com.banking.model
 
-class BankAccount(accountHolder: String, balance: Double) {
-  require(balance >= 0.0)
-  private var transactions: List[Transaction] = List(Credit(balance, "Opening balance"))
+class BankAccount(val accountHolder: String, private var balance: Double) {
 
-  private def this(accountHolder: String, openingBalance: Double, transactions: List[Transaction]) {
-    this(accountHolder, openingBalance)
-    require(openingBalance >= 0.0)
-    this.transactions = transactions;
+  require(balance >= 0.0, "Balance must be greater than or equal to zero")
+
+  private val transactions : Transactions = if (balance > 0) new Transactions(Credit("Opening balance", balance, balance)) else new Transactions()
+
+  def getBalance() = balance
+  def getTransactions() = transactions
+
+  def deposit(amount: Double) : BankAccount = synchronized {
+    require(amount > 0, "Amount to be deposited must be greater than zero")
+    balance = balance + amount
+    transactions.add(Credit("Deposited", amount, balance))
+    require(balance == transactions.reconcile)
+    this
   }
 
-  def currentBalance : Double = transactions.foldLeft(0.0)((cumulativeBalance, t) => t match {
-        case Credit(amount, _) => cumulativeBalance + amount
-        case Debit(amount, _) => cumulativeBalance - amount
-    })
-
-  def deposit(amount: Double) : BankAccount = {
-      new BankAccount(this.accountHolder, this.balance,  new Credit(amount, "Credited") :: transactions)
+  def withdraw(amount: Double) : BankAccount = synchronized {
+    if (balance < amount)
+      throw new InsufficientBalance(s"Balance $balance is not sufficient to withdraw $amount")
+    balance = balance - amount
+    transactions.add(Debit("Withdrawn", amount, balance))
+    require(balance == transactions.reconcile)
+    this
   }
 
-  def withdraw(amount: Double) : BankAccount = {
-    if (this.currentBalance < amount)
-      throw new InsufficientBalance("Balance is not sufficient.")
-    new BankAccount(this.accountHolder, this.balance, new Debit(amount, "Withdrawn") :: transactions)
-  }
+  def contains(tran: Transaction): Boolean = transactions.contains(tran)
+
+
+  def getLatestTransaction(): Transaction = transactions.getLatestTransaction()
 
   override def toString: String = {
-    var result = "Account holder: " + accountHolder + "\n" + "Balance: " + currentBalance + "\n" + "Transactions:\n"
-    transactions.foreach(t => result = result + t + "\n")
-    result
+    val PADDING  = 20
+    "Account holder:".padTo(PADDING, " ").mkString + accountHolder + "\n" +
+      "Balance:".padTo(PADDING, " ").mkString + balance + "\n" +
+      transactions
   }
 }
 
-class InsufficientBalance(message: String) extends RuntimeException
+class InsufficientBalance(message: String) extends RuntimeException {
+  override def toString: String = message
+}

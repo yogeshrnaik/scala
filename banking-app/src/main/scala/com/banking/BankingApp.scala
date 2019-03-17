@@ -4,11 +4,10 @@ import com.banking.model.BankAccount
 
 object BankingApp {
   def main(args: Array[String]): Unit = {
-    var acct: BankAccount = new BankAccount("Tom", 10.0)
-      .withdraw(10)
-      .deposit(20)
-      .withdraw(10)
-      .withdraw(10)
-    println(acct)
+    println(new BankAccount("Tom", 100000).withdraw(100000))
+
+    println(new BankAccount("Hank", 500).deposit(200).withdraw(100))
+
+    println(new BankAccount("John", -10))
   }
 }
