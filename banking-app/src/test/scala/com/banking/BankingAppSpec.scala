@@ -12,7 +12,7 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.getTransactions().isEmpty() should equal (true)
   }
 
-  "A new BankAccount" should "not be created with negative opening balance" in {
+  "A new BankAccount" should "not get created with negative opening balance" in {
     val ex = intercept[IllegalArgumentException] {
       new BankAccount("Tom", -10)
     }
@@ -25,7 +25,7 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.getLatestTransaction() should equal (Credit("Opening balance", 100, 100))
   }
 
-  "A deposit operation" should "have latest transaction as a Credit = deposited amount" in {
+  "A deposit operation" should "increase balance by deposited amount and account has latest transaction as Credit with deposited amount" in {
     val acct = new BankAccount("Tom", 10)
     acct.deposit(40)
 
@@ -33,7 +33,7 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.getLatestTransaction() should equal (Credit(Transactions.DEPOSITED, 40, 50))
   }
 
-  "A withdraw operation" should "have latest transaction as a Debit = withdrawn amount" in {
+  "A withdraw operation" should "decrease balance by withdrawn amount and account has latest transaction as Debit with withdrawn amount" in {
     val acct = new BankAccount("Tom", 100)
     acct.withdraw(20)
 
