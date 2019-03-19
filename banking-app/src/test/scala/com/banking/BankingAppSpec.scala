@@ -1,22 +1,28 @@
 package com.banking
-import com.banking.model.{BankAccount, Credit, Debit}
+import com.banking.model._
 
 import collection.mutable.Stack
 import org.scalatest._
 
 class BankingAppSpec extends FlatSpec with Matchers {
 
-
   "A new BankAccount with opening balance = 0" should "not have any transactions" in {
     val acct = new BankAccount("Tom", 0)
     acct.getBalance() should be (0)
-    assert(acct.getTransactions().isEmpty() == true)
+    acct.getTransactions().isEmpty() should equal (true)
+  }
+
+  "A new BankAccount" should "not be created with negative opening balance" in {
+    val ex = intercept[IllegalArgumentException] {
+      new BankAccount("Tom", -10)
+    }
+    ex.getMessage should equal ("requirement failed: Balance must be greater than or equal to zero")
   }
 
   "A new BankAccount with opening balance > 0" should "have latest transaction as a Credit = opening balance" in {
     val acct = new BankAccount("Tom", 100)
     acct.getBalance() should be (100)
-    assert(acct.getLatestTransaction() == Credit("Opening balance", 100, 100))
+    acct.getLatestTransaction() should equal (Credit("Opening balance", 100, 100))
   }
 
   "A deposit operation" should "have latest transaction as a Credit = deposited amount" in {
@@ -24,7 +30,7 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.deposit(40)
 
     acct.getBalance() should be (50)
-    assert(acct.getLatestTransaction() == Credit("Deposited", 40, 50))
+    acct.getLatestTransaction() should equal (Credit(Transactions.DEPOSITED, 40, 50))
   }
 
   "A withdraw operation" should "have latest transaction as a Debit = withdrawn amount" in {
@@ -32,13 +38,15 @@ class BankingAppSpec extends FlatSpec with Matchers {
     acct.withdraw(20)
 
     acct.getBalance() should be (80)
-    assert(acct.getLatestTransaction() == Debit("Withdrawn", 20, 80))
+    acct.getLatestTransaction() should equal (Debit(Transactions.WITHDRAWN, 20, 80))
   }
 
-  "A new BankAccount" should "not be created with negative opening balance" in {
-    val ex = intercept[IllegalArgumentException] {
-      new BankAccount("Tom", -10)
+  "A withdraw operation with amount > balance" should "throw InsufficientBalance exception and not change balance" in {
+    val acct = new BankAccount("Tom", 100)
+    val ex = intercept[InsufficientBalance] {
+      acct.withdraw(200)
     }
-    ex.getMessage should equal ( "requirement failed: Balance must be greater than or equal to zero")
+    ex.getMessage should equal ("Balance 100.0 is not sufficient to withdraw 200.0")
+    acct.getBalance() should be (100)
   }
 }

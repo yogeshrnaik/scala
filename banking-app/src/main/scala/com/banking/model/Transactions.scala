@@ -32,3 +32,7 @@ class Transactions(val transaction: Transaction) {
   }
 }
 
+object Transactions {
+  val DEPOSITED = "Deposited"
+  val WITHDRAWN = "Withdrawn"
+}

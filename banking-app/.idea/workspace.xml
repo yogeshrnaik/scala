@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dae5e932-5fea-4159-a3aa-8f067a2f34ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -22,49 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="73" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sbt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
+            <state relative-caret-position="152">
+              <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
               <folding>
-                <element signature="e#20#73#0" expanded="true" />
+                <element signature="e#20#46#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,6 +43,33 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
               <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -94,6 +89,7 @@
       <find>new</find>
       <find>transaction</find>
       <find>this.</find>
+      <find>assertTrue</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -105,10 +101,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/banking/model/Transaction.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/banking/BankingAppTest.java" />
         <option value="$PROJECT_DIR$/src/test/scala/com/banking/BankingAppTests.java" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala" />
       </list>
     </option>
@@ -125,6 +121,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -193,11 +190,16 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552814937886" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552971560340" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala/com/banking/model" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.banking.model" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -333,6 +335,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="ScalaTest.BankingAppSpec" />
+        <item itemvalue="ScalaTest.BankingAppSpec" />
         <item itemvalue="ScalaTest.BankingAppSpec.A withdraw operation should have latest transaction as a Debit transaction equal to withdrawn amount" />
         <item itemvalue="ScalaTest.BankingAppSpec.A new BankAccount with opening balance = 0 should not have any transactions" />
         <item itemvalue="ScalaTest.BankingAppSpec.A new BankAccount with opening balance = 0 should not have any transactions&#10;A new BankAccount with opening balance &gt; 0 should have a Credit transaction equal to opening balance&#10;A deposit operation should add a Credit transaction equal to deposited amount" />
@@ -390,34 +393,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 49m 23s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.18 at 10h 08m 26s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 53m 08s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.18 at 10h 09m 21s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 54m 16s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 31m 07s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 54m 34s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 31m 47s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 54m 51s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 33m 49s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 56m 55s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 34m 04s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 57m 09s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 35m 53s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 57m 37s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 36m 08s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 57m 56s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 37m 47s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="BankingAppSpec - 2019.03.17 at 14h 58m 16s.xml">
+    <history-entry file="BankingAppSpec - 2019.03.19 at 09h 41m 04s.xml">
       <configuration name="BankingAppSpec" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
@@ -434,7 +437,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.51955307" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.51955307" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39944133" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -487,18 +490,6 @@
       <window_info anchor="right" id="sbt" order="8" />
     </layout-to-restore>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala</url>
-          <line>41</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
@@ -531,31 +522,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/banking/BankingAppTests.java">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/banking/BankingAppTests.java" />
+    <entry file="file://$PROJECT_DIR$/build.sbt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="39" />
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.5-sources.jar!/org/scalatest/words/ShouldVerb.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="229">
+          <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.5-sources.jar!/org/scalatest/Matchers.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3667">
+          <caret line="6702" column="8" selection-start-line="6702" selection-start-column="8" selection-end-line="6702" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.12/srcs/scalatest_2.12-3.0.5-sources.jar!/org/scalatest/Assertions.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="465" column="6" selection-start-line="465" selection-start-column="6" selection-end-line="465" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="-57">
+          <caret line="908" column="68" selection-start-line="908" selection-start-column="58" selection-end-line="908" selection-end-column="68" />
         </state>
       </provider>
     </entry>
@@ -566,26 +558,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/BankingApp.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        <state relative-caret-position="152">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/BankAccount.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="73" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="73" />
+        <state relative-caret-position="114">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/banking/model/Transactions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="16" column="58" lean-forward="true" selection-start-line="16" selection-start-column="58" selection-end-line="16" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/scala/com/banking/BankingAppSpec.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="41" column="53" lean-forward="true" selection-start-line="41" selection-start-column="53" selection-end-line="41" selection-end-column="53" />
+        <state relative-caret-position="152">
+          <caret line="31" column="36" lean-forward="true" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
           <folding>
-            <element signature="e#20#73#0" expanded="true" />
+            <element signature="e#20#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -12,7 +12,7 @@ class BankAccount(val accountHolder: String, private var balance: Double) {
   def deposit(amount: Double) : BankAccount = synchronized {
     require(amount > 0, "Amount to be deposited must be greater than zero")
     balance = balance + amount
-    transactions.add(Credit("Deposited", amount, balance))
+    transactions.add(Credit(Transactions.DEPOSITED, amount, balance))
     require(balance == transactions.reconcile)
     this
   }
@@ -21,7 +21,7 @@ class BankAccount(val accountHolder: String, private var balance: Double) {
     if (balance < amount)
       throw new InsufficientBalance(s"Balance $balance is not sufficient to withdraw $amount")
     balance = balance - amount
-    transactions.add(Debit("Withdrawn", amount, balance))
+    transactions.add(Debit(Transactions.WITHDRAWN, amount, balance))
     require(balance == transactions.reconcile)
     this
   }
@@ -38,6 +38,6 @@ class BankAccount(val accountHolder: String, private var balance: Double) {
   }
 }
 
-class InsufficientBalance(message: String) extends RuntimeException {
+class InsufficientBalance(message: String) extends RuntimeException(message) {
   override def toString: String = message
 }

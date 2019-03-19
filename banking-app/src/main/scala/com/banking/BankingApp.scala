@@ -7,7 +7,5 @@ object BankingApp {
     println(new BankAccount("Tom", 100000).withdraw(100000))
 
     println(new BankAccount("Hank", 500).deposit(200).withdraw(100))
-
-    println(new BankAccount("John", -10))
   }
 }
