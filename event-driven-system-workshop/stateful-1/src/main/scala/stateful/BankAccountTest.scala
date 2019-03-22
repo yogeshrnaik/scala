@@ -5,22 +5,26 @@ import scala.concurrent.{ExecutionContext, ExecutionContextExecutorService, Futu
 
 object BankAccountTest extends App {
 
-  private val bankAccount = new BankAccount
+  private val externalService = new ExternalService
+  private val bankAccount     = new BankAccount(externalService)
 
   implicit val ec: ExecutionContext = {
     ExecutionContext.fromExecutorService(Executors.newFixedThreadPool(100))
   }
 
-  (1 to 10).foreach { x =>
-    Future.unit.foreach { _ =>
+  val finalFuture = Future.traverse((1 to 10000).toList) { x =>
+    val f1 = Future.unit.map { _ =>
       bankAccount.deposit(10)
     }
-    Future.unit.foreach { _ =>
+    val f2 = Future.unit.map { _ =>
       bankAccount.withdraw(10)
     }
+    f1.flatMap(_ => f2)
   }
 
   Thread.sleep(2000)
 
-  println(bankAccount.balance)
+  finalFuture.onComplete { _ =>
+    println(bankAccount.balance)
+  }
 }
