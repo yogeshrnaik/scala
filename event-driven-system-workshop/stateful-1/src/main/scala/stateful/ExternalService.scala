@@ -1,29 +1,39 @@
 package stateful
 import java.util.concurrent.{Executors, ScheduledExecutorService, TimeUnit}
 
-class ExternalService {
+import scala.concurrent.{ExecutionContext, Future, Promise}
+import scala.concurrent.duration.{DurationInt, FiniteDuration}
+import scala.util.Success
+
+class ExternalService(blockingEc: ExecutionContext) {
 
   private val queue: ScheduledExecutorService = {
     Executors.newScheduledThreadPool(10)
   }
 
-//  def record(action: Action): Unit = {
-//    Thread.sleep(1000)
-//  }
+  def record(action: Action): Unit =
+    Future.unit.map { _ =>
+      Thread.sleep(1000)
+    }(blockingEc)
 
-  def record2(callback: Runnable): Unit = {
+  def asyncNonBlockingCall(callback: Runnable): Unit = {
     queue.schedule(callback, 1, TimeUnit.SECONDS)
   }
 
-  def record3(callback: Runnable): Unit = {
+  def asyncNonBlockingCall2(): Future[Unit] = tick(1.second)
+
+  def tick(duration: FiniteDuration): Future[Unit] = {
+    val p: Promise[Unit] = Promise()
+    val runnable: Runnable = { () =>
+      p.complete(Success(()))
+    }
+    queue.schedule(runnable, duration.length, duration.unit)
+    p.future
+  }
+
+  def asyncBlockingCall(callback: Runnable): Unit = {
     val runnable: Runnable = () => { Thread.sleep(1000); callback.run() }
     queue.submit(runnable)
   }
 
-  val m = Map(1 -> 100, 2 -> 200)
-
-  def onProductPrice(productId: Int, f: Int => Unit): Unit = {
-    val runnable: Runnable = () => f(m(productId))
-    queue.schedule(runnable, 1, TimeUnit.SECONDS)
-  }
 }
