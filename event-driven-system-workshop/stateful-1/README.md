@@ -12,3 +12,27 @@ Setup
 - cd into the cloned repo
 - run "sbt update" (this will take a long time, please be patient)
 - From IntelliJ, "open" this project, select options to download sources (this will take a long time, wait till indexing finishes)
+
+
+Workshop Notes
+------------------
+Actor based implementation
+
+Define protocol first. That is the messages that Actor can send/receive.
+
+```scala
+trait Action
+case class Deposit(amount: Int) extends Action
+case class Withdrawal(amount: Int) extends Action
+case class GetBalance() extends Action
+```
+
+Then define the behavior to handle each incoming message type.
+
+E.g. What to do when we get Deposit or Withdrawal message.
+
+Once behavior is defined, we need to spawn the behavior using Akka ActorSystem.
+
+Once we spawn the behavior, it gives us ActorRef using which we can send message / invoke the behavior.
+
+
