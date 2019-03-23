@@ -35,4 +35,9 @@ Once behavior is defined, we need to spawn the behavior using Akka ActorSystem.
 
 Once we spawn the behavior, it gives us ActorRef using which we can send message / invoke the behavior.
 
+#### Active Object vs Actor
+In Active Object, there is a queue and a single thread processing the items from queue one at a time.
 
+In Actor, the same thing is done by Akka framework. 
+
+But, Akka framework can choose to schedule the processing of each message on different thread.
