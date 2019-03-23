@@ -37,7 +37,9 @@ Once we spawn the behavior, it gives us ActorRef using which we can send message
 
 #### Active Object vs Actor
 In Active Object, there is a queue and a single thread processing the items from queue one at a time.
+So, for each Active Object there is a dedicated Thread. 
+So, we cannot have infinite Active Object "active" at the same time as they will consume resource.
 
-In Actor, the same thing is done by Akka framework. 
-
+In Actor, the same thing is done by Akka framework.
 But, Akka framework can choose to schedule the processing of each message on different thread.
+Since Akaa manages the threads, we can have many Actors active at the same time and Akka manages the resources (e.g. Threads).
